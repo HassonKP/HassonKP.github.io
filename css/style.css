@@ -50,10 +50,61 @@ nav ul li a:hover {
 
 /* Section styling */
 section {
-  margin: 20px;
+  margin: 20px auto;
   padding: 20px;
   background: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+}
+
+/* About section container */
+.about-container {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Profile picture styling */
+.profile-picture {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  float: left; /* Aligns the image to the left */
+  margin-right: 20px; /* Adds spacing between the image and text */
+  shape-outside: square(); /* Ensures the text wraps neatly around the image */
+  clip-path: circle(
+    50% at 50% 50%
+  ); /* Works as a fallback for browsers not supporting `shape-outside` */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* About text styling */
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-indent: 1.5em;
+  text-align: justify;
+}
+
+.about-text em {
+  font-style: italic;
+  color: #555;
 }
 
 /* Footer styling */
@@ -69,10 +120,10 @@ footer {
   background-color: #444; /* Dark background for contrast */
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 5px 15px;
   margin: 10px auto;
-  max-width: 600px;
-  border-radius: 15px;
+  max-width: fit-content;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
