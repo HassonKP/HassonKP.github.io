@@ -71,9 +71,9 @@ section {
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  float: left; /* Aligns the image to the left */
-  margin-right: 20px; /* Adds spacing between the image and text */
-  shape-outside: square(); /* Ensures the text wraps neatly around the image */
+  float: left;
+  margin-right: 20px;
+  shape-outside: square();
   clip-path: circle(
     50% at 50% 50%
   ); /* Works as a fallback for browsers not supporting `shape-outside` */
@@ -117,7 +117,7 @@ footer {
 
 /*Bubble styling for headers*/
 .bubble {
-  background-color: #444; /* Dark background for contrast */
+  background-color: #444;
   color: white;
   text-align: center;
   padding: 5px 15px;
@@ -169,7 +169,8 @@ footer {
 }
 
 /* Grid container for projects */
-#projects-grid {
+#projects-grid,
+.projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
@@ -179,6 +180,9 @@ footer {
 /* Each project container with title */
 .project-container {
   text-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 /* Title styling for projects */
@@ -195,10 +199,11 @@ footer {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  max-width: 300px;
-  margin: 0 auto;
+  width: 100%;
+  height: 200px;
 }
 
+/* Hover effect on project cards */
 .project-card:hover {
   transform: scale(1.05);
 }
@@ -207,7 +212,7 @@ footer {
 .project-card img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -224,11 +229,63 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0px;
+  padding: 10px; /* Add some padding to the text */
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .project-card:hover .overlay {
   opacity: 1;
+}
+
+/* Social grid container styling */
+#social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  justify-items: center;
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+/* Individual social card styling */
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  width: 250px;
+  height: 300px;
+}
+
+/* Social card hover effect */
+.social-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Social icon styling */
+.social-card img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.social-card:hover img {
+  transform: scale(1.2);
+}
+
+/* Social card title styling */
+.social-card h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #333;
+  font-weight: bold;
 }
