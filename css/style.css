@@ -4,7 +4,7 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
+  background-color: #333;
 }
 
 /* Header styling */
@@ -15,20 +15,37 @@ header {
   text-align: center;
 }
 
-/* Navigation menu styling */
+/* Navigation menu container styling */
+nav {
+  background-color: #444;
+  padding: 10px 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Center-align the nav content */
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 10px;
-}
-
+/* Individual link styling */
 nav ul li a {
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for links */
+nav ul li a:hover {
+  background-color: #666; /* Slightly lighter background on hover */
 }
 
 /* Section styling */
@@ -47,18 +64,52 @@ footer {
   color: #fff;
 }
 
-/* Social icons styling */
-.social-icons {
+/*Bubble styling for headers*/
+.bubble {
+  background-color: #444; /* Dark background for contrast */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.bubble h1 {
+  margin: 0; /* Remove default margins */
+  font-size: 2rem;
+}
+
+/* Social container styling */
+.social-container {
   position: absolute;
   top: 10px;
   right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Text styling for "Social Links:" */
+.social-container span {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Social icons styling */
+.social-icons {
   display: flex;
   gap: 10px;
 }
 
 .social-icons a img {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   transition: transform 0.3s;
 }
 
