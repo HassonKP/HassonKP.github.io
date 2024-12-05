@@ -290,3 +290,74 @@ footer {
   color: #333;
   font-weight: bold;
 }
+
+/* Video section styling */
+#video-section {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#video-section video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+#video-section p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Content section styling */
+.content-section {
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.content-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  text-indent: 2em;
+  text-align: justify;
+}
+
+.content-section a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+.content-section a:hover {
+  text-decoration: underline;
+}
+
+.content-section ul {
+  list-style: disc;
+  padding-left: 20px; /* Indent for better alignment */
+  margin: 10px 0;
+}
+
+.content-section li {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}

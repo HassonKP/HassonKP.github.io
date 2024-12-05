@@ -11,20 +11,86 @@
       <h1>ToonTanks</h1>
       <nav>
         <ul>
-          <li><a href="projects.html">Back to Projects</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
         </ul>
       </nav>
     </header>
+
     <main>
-      <section id="project-details">
+      <!-- Video Section -->
+      <section id="video-section">
+        <h2>Gameplay Demo</h2>
+        <video controls>
+          <source src="videos/toontanks-demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p>Watch the exciting gameplay of ToonTanks!</p>
+      </section>
+
+      <!-- About Section -->
+      <section class="content-section">
         <h2>About ToonTanks</h2>
         <p>
-          ToonTanks is a fun tank battle game where players control a
-          cartoon-style tank to defeat opponents and win battles!
+          ToonTanks is an exciting single-player game where the player controls
+          a tank and battles enemy towers in a stylized battlefield. Players
+          must strategically navigate the terrain, avoid enemy fire, and destroy
+          all towers to emerge victorious!
         </p>
-        <img src="images/toontanks-screenshot.png" alt="ToonTanks Screenshot" />
+      </section>
+
+      <!-- Why I Did This Section -->
+      <section class="content-section">
+        <h2>Why I Did This Project</h2>
+        <p>
+          ToonTanks was one of the more complete projects in the
+          <a
+            href="https://www.udemy.com/course/unrealcourse/?couponCode=ACCAGE0923"
+            target="_blank"
+            >Udemy</a
+          >
+          course. It marked a pivotal moment for me, where the connection
+          between C++ and Unreal Engine's Blueprint system became clear. This
+          project introduced me to the fundamentals of game development, such as
+          spawning objects like projectiles at runtime rather than assigning
+          them during compile time. I particularly enjoyed seeing how
+          inheritance, a core programming concept, could be applied to reuse
+          functions for handling damage and spawning projectiles. It was also my
+          first experience manipulating meshes, like adjusting the tank's turret
+          for aiming, and experimenting with sound effects to bring the game to
+          life. These small but essential lessons gave me the confidence to
+          dream bigger. For the first time, I began to think, "How would I
+          implement this?" whenever a small feature in a game stood out to me.
+          This project was a significant step toward making my dream of game
+          development feel achievable.
+        </p>
+      </section>
+
+      <!-- Lessons Learned Section -->
+      <section class="content-section">
+        <h2>What I Learned</h2>
+        <ul>
+          <li>Dynamic spawning of objects, such as projectiles.</li>
+          <li>Handling object interactions and basic collision logic.</li>
+          <li>Leveraging inheritance to reuse and extend functionality.</li>
+          <li>Adding sound effects to create immersive feedback loops.</li>
+          <li>
+            Manipulating 3D meshes dynamically for animation and gameplay.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Download Section -->
+      <section class="content-section">
+        <h2>Download ToonTanks</h2>
+        <p>
+          <a href="downloads/ToonTanks.zip" download
+            >Click here to download the game!</a
+          >
+        </p>
       </section>
     </main>
+
     <footer>
       <p>&copy; 2024 Killian Hasson</p>
     </footer>
