@@ -30,25 +30,175 @@
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
-        <p>Watch the exciting gameplay of Simple Shooter!</p>
+        <p>A demo video of Simple Shooter!</p>
       </section>
 
       <!-- About the Game -->
       <section class="content-section">
         <h2>About the Game</h2>
-        <p></p>
+        <p>
+          This SimpleShooter game is a fairly basic and straight forward 3rd
+          person shooter, again done in Unreal Engine. The Map itself was
+          pre-made and the Player/NPC assets themselves come from the
+          Paragon:Wraith pack on the Unreal Store. The game has you the player
+          move through a command center and eliminate hostiles, the AI has some
+          basic features in that if you are spotted they will chase and fire
+          when within range. The win condition is simple, destroy all enemy
+          targets before you find yourself at 0 hit points.
+        </p>
       </section>
 
       <!-- Why I Did This Project -->
       <section class="content-section">
         <h2>Why I Did This Project</h2>
-        <p></p>
+        <p>
+          This project was the final one in the
+          <a
+            href="https://www.udemy.com/course/unrealcourse/?couponCode=ACCAGE0923"
+            target="_blank"
+            >Udemy</a
+          >
+          course, and to be fair probably my favorite project. It took the
+          fundamentals that were laid out in ToonTanks and really expanded on
+          them. It was the first time implementing true animations in Unreal,
+          and introduced everything from Blend Spaces to Animation Blue Prints.
+          This course expanded upon the use of widgets allowing for, albeit
+          basic, a actual HUD that was similar enough to so many games I had
+          enjoyed before.
+        </p>
+        <p>
+          One of the most exciting aspects of this project was creating a more
+          engaging AI enemy character, moving beyond the static Towers in
+          ToonTanks that merely aimed and fired at the player. I explored
+          Behavior Trees and Blackboards, which enabled me to design enemies
+          capable of perceiving and reacting to the player. In this aspect I
+          felt like I was understanding finally how the world itself could
+          perceive and interact with the Player in order to create a more
+          interesting game play loop.
+        </p>
+        <p>
+          This project took the concepts and fundamentals that had been laid out
+          in earlier courses and allowed me to create a game close to something
+          I could play.
+        </p>
       </section>
 
       <!-- What I Learned -->
       <section class="content-section">
         <h2>What I Learned</h2>
-        <p></p>
+        <ul>
+          <li>
+            Blend Spaces
+            <ul>
+              <li>
+                Used to smoothly transition between animations (idle to running,
+                and direction).
+              </li>
+            </ul>
+          </li>
+          <li>
+            Animation Blueprints
+            <ul>
+              <li>
+                Centralized control over character animations using state
+                machines.
+              </li>
+              <li>
+                Enabled dynamic interactions between character movement and
+                animation.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Behavior Trees
+            <ul>
+              <li>Designed complex enemy AI decision-making systems.</li>
+              <li>Implemented key components such as:</li>
+              <ul>
+                <li>
+                  BTTasks: Custom logic nodes for specific enemy actions, such
+                  as attacking or patrolling.
+                </li>
+                <li>
+                  BTServices: Periodic checks for player proximity or health,
+                  adding dynamic reactions to AI.
+                </li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            Blackboard Values
+            <ul>
+              <li>
+                Managed AI states, such as awareness of the player or patrolling
+                paths, and ability to fire.
+              </li>
+              <li>Linked to Behavior Trees for real-time updates.</li>
+            </ul>
+          </li>
+          <li>
+            Custom C++ Gun/Weapons and Blueprints
+            <ul>
+              <li>
+                Developed modular weapon systems to handle shooting mechanics.
+              </li>
+              <li>
+                Integrated with Blueprints for ease of use and rapid iteration.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Custom AI Controllers
+            <ul>
+              <li>
+                Controlled AI behavior, delegating tasks and making decisions
+                based on environmental factors.
+              </li>
+              <li>
+                Allowed modularity by separating AI logic from character data.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Player Controllers
+            <ul>
+              <li>Managed player input and interaction with the game world.</li>
+            </ul>
+          </li>
+          <li>
+            HUD and Widgets
+            <ul>
+              <li>
+                Built a minimalistic yet functional Heads-Up Display (HUD) to
+                show health and crosshair.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Sound Design
+            <ul>
+              <li>
+                Incorporated sound effects for firing, hitting targets, and
+                other in-game events.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Dynamic Mesh Manipulation
+            <ul>
+              <li>Programmatically controlled parts of the character.</li>
+            </ul>
+          </li>
+          <li>
+            Game Flow Control
+            <ul>
+              <li>
+                Implemented custom logic for starting, pausing, and ending the
+                game.
+              </li>
+            </ul>
+          </li>
+        </ul>
       </section>
 
       <!-- Download Section -->
