@@ -362,3 +362,65 @@ footer {
   line-height: 1.6;
   margin-bottom: 8px;
 }
+
+/* Features Grid Section Styling */
+#features-grid {
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 1200px;
+  text-align: center;
+}
+
+#features-grid h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Grid Container for Cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Feature Card Styling */
+.feature-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.feature-card .card-content {
+  padding: 15px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature-card p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
