@@ -35,10 +35,11 @@
       <section class="content-section">
         <h2>About the Game</h2>
         <p>
-          BlackDog is a third-person action RPG where players explore a grim and
-          mysterious world. Developed as a personal project, this game was a
-          sandbox to experiment with advanced Unreal Engine mechanics, including
-          custom inventory systems, interactive shops, and dynamic combat.
+          BlackDog is a third-person action RPG where players fight to survive
+          for as long as they can. The game mode is a basic Wave Mode, where
+          when all enemies are destroyed more enemies spawn than before. The
+          player fights to see how long they can last while utilizing the shop
+          to purchase things such as new weapons and health potions.
         </p>
       </section>
 
@@ -47,29 +48,29 @@
         <h2>Game Features</h2>
         <div class="grid-container">
           <!-- Inventory Card -->
-          <div class="feature-card">
+          <div class="feature-card" onclick="openModal('inventory')">
             <img src="images/inventory.png" alt="Inventory Screenshot" />
             <div class="card-content">
               <h3>Inventory</h3>
               <p>
                 A custom-designed inventory system for managing and equipping
-                items seamlessly.
+                items!
               </p>
             </div>
           </div>
           <!-- Shop Card -->
-          <div class="feature-card">
+          <div class="feature-card" onclick="openModal('shop')">
             <img src="images/shop.png" alt="Shop Screenshot" />
             <div class="card-content">
               <h3>Shop</h3>
               <p>
                 An interactive shop system where players can buy and sell items
-                to enhance gameplay.
+                to make it to further waves!
               </p>
             </div>
           </div>
           <!-- Combat Card -->
-          <div class="feature-card">
+          <div class="feature-card" onclick="openModal('combat')">
             <img src="images/combat.gif" alt="Combat Screenshot" />
             <div class="card-content">
               <h3>Combat</h3>
@@ -79,11 +80,298 @@
               </p>
             </div>
           </div>
+          <!-- AI Card -->
+          <div class="feature-card" onclick="openModal('ai')">
+            <img src="images/ai.png" alt="AI Screenshot" />
+            <div class="card-content">
+              <h3>AI</h3>
+              <p>
+                Advanced AI behavior using Behavior Trees and Blackboards to
+                create engaging enemies.
+              </p>
+            </div>
+          </div>
+          <!-- Sources Card -->
+          <div class="feature-card" onclick="openModal('sources')">
+            <img src="images/sources.png" alt="Sources Screenshot" />
+            <div class="card-content">
+              <h3>Sources</h3>
+              <p>
+                A list of resources and assets used in the game, including
+                animations, models, and sounds.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
+
+      <!-- Modals -->
+      <div id="modal-inventory" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('inventory')">&times;</span>
+          <h2>Inventory</h2>
+          <img src="images/inventory.png" alt="Inventory Screenshot" />
+          <p>
+            <strong>Core System:</strong> The player's inventory is
+            fundamentally an array of items. Each item belongs to a specific
+            type, determined by an enum, such as Weapons, Consumables, and other
+            categories. Each item type handles its unique functionality while
+            sharing a consistent display format.
+          </p>
+          <p>
+            <strong>Display and User Interface:</strong> The inventory is
+            visualized through an <em>Inventory Widget</em>, which is populated
+            with <em>InventorySlotWidgets</em>. These slots display the item's
+            image, name, value, and additional relevant details like damage for
+            weapons.
+          </p>
+          <p>
+            <strong>Player Interaction:</strong> Players can interact with items
+            in the inventory using custom functions for actions such as selling
+            (when at a shop), using, or acquiring new items. The inventory
+            updates dynamically whenever changes occur, triggered by a function
+            in the player's custom controller class.
+          </p>
+          <p>
+            <strong>Weapon Swapping:</strong> Right-clicking on a weapon allows
+            the player to swap their equipped weapon. The currently equipped
+            weapon is displayed via in the <em>Primary Weapon Slot</em>, visible
+            whenever the inventory is opened.
+          </p>
+          <p>
+            <strong>Opening the Inventory:</strong> The player's inventory can
+            be accessed at any time by pressing the "I" key, allowing seamless
+            management of their items during gameplay.
+          </p>
+        </div>
+      </div>
+      <div id="modal-shop" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('shop')">&times;</span>
+          <h2>Shop</h2>
+          <img src="images/shop.png" alt="Shop Screenshot" />
+          <p>
+            <strong>Item Management:</strong> The shop maintains a predetermined
+            set of items, organized similarly to the player's inventory. An
+            array of items is used to generate and populate a custom widget
+            blueprint made up of individual inventory slot widgets.
+          </p>
+          <p>
+            <strong>Buying Items:</strong> Items in the shop are tagged with a
+            <em>Shop</em>
+            enum value. Right-clicking on an item deducts its value from the
+            player's currency and adds the item to the player's inventory,
+            followed by an inventory update.
+          </p>
+          <p>
+            <strong>Selling Items:</strong> When an item is sold, it is
+            discarded from the player's inventory, and its value is added to the
+            player's currency via the <code>gainCurrency</code> function.
+          </p>
+          <p>
+            <strong>Shop Interaction Radius:</strong> The shop operates within a
+            set radius. The player tracks if they are in range of a shop and
+            updates a Variable with said shop, this could allow the creation of
+            multiple shops at a later time and allow differentiating between
+            them.
+          </p>
+        </div>
+      </div>
+      <div id="modal-combat" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('combat')">&times;</span>
+          <h2>Combat</h2>
+          <img src="images/combat.gif" alt="Combat Screenshot" />
+          <p>
+            <strong>Attack System:</strong> When the attack button is pressed,
+            an attack animation is played. During the animation, an
+            <em>Anim Notify State</em> determines when the weapon is actively
+            dealing damage. A single line trace runs every tick during the
+            swing, and on a successful hit, the target's
+            <code>TakeDamage</code> function is called, applying the weapon's
+            damage.
+          </p>
+          <p>
+            <strong>Dynamic Attack Speed:</strong> Each weapon and actor's
+            attack speed varies, which adjusts the animation speed dynamically.
+            Swapping weapons updates the attack speed and animation in the
+            <em>Animation Blueprint</em>. Flags differentiate between one-handed
+            and two-handed weapons for handling different attack animations.
+          </p>
+          <p>
+            <strong>Damage Numbers:</strong> A small widget displaying the
+            damage dealt is attached to the target and always faces the player's
+            camera. This creates a dynamic damage feedback system similar to
+            games like <em>Diablo</em>, enhancing immersion.
+          </p>
+          <p>
+            <strong>Sound Effects:</strong> Swing and hit sound effects are
+            assigned to weapon blueprints for a customizable experience. Swing
+            sounds are triggered via an <em>Anim Notify</em> at the start of the
+            animation for proper synchronization. Hit sounds, along with
+            particle effects, are triggered in the hit detection function and
+            play at the hit location for added impact.
+          </p>
+        </div>
+      </div>
+      <div id="modal-ai" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('ai')">&times;</span>
+          <h2>AI</h2>
+          <img src="images/ai.png" alt="AI Behavior Screenshot" />
+          <p>
+            <strong>Behavior Trees:</strong> A custom behavior tree was used to control the AI's decision-making process. This tree manages key actions such as patrolling, chasing the player, and attacking.
+          </p>
+          <p>
+            <strong>Blackboard Integration:</strong> The blackboard serves as a shared data structure for the behavior tree, storing dynamic AI data such as the player's position, whether the player is detected, and patrol locations.
+          </p>
+          <p>
+            <strong>Custom BTService Classes:</strong> 
+            <ul>
+              <li>
+                <strong>PlayerLocation:</strong> Updates the blackboard with the player's current location, ensuring the AI has up-to-date information for decision-making.
+              </li>
+              <li>
+                <strong>PlayerLocationIfSeen:</strong> A more specific service that updates the blackboard only if the player is within the AI's line of sight.
+              </li>
+            </ul>
+          </p>
+          <p>
+            <strong>Custom BTTask Classes:</strong> 
+            <ul>
+              <li>
+                <strong>Attack:</strong> Handles the execution of the attack logic, including playing attack animations and dealing damage to the player.
+              </li>
+              <li>
+                <strong>SetRandomPatrolLocation:</strong> Randomly selects patrol points within a designated area, keeping the AI dynamic and unpredictable during idle states.
+              </li>
+            </ul>
+          </p>
+          <p>
+            <strong>Custom AI Controller:</strong> A custom C++ AI Controller was developed to manage AI perception and behavior tree execution. Key features include:
+            <ul>
+              <li>
+                <strong>Perception System:</strong> Uses the <em>UAIPerceptionComponent</em> and <em>UAISenseConfig_Sight</em> to detect the player within a defined sight radius and angle. This system dynamically updates the blackboard when the player is detected or lost.
+              </li>
+              <li>
+                <strong>Player Detection:</strong> Updates blackboard values such as <code>Player</code>, <code>PlayerLocation</code>, and <code>PlayerDetected</code> based on perception stimuli.
+              </li>
+              <li>
+                <strong>Spawn Location:</strong> Stores and manages the AI's initial spawn location, allowing for dynamic patrol routes and reset behavior.
+              </li>
+            </ul>
+          </p>
+          <p>
+            <strong>AI Behavior Tree Breakdown:</strong> The behavior tree includes:
+            <ul>
+              <li>
+                <strong>Selector Nodes:</strong> Evaluate different branches, such as chasing the player or patrolling, based on blackboard conditions.
+              </li>
+              <li>
+                <strong>Sequence Nodes:</strong> Handle sequential actions like rotating to face the player, attacking, and waiting before executing the next action.
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div id="modal-sources" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('sources')">&times;</span>
+          <h2>Sources</h2>
+          <p>
+            Below are the assets and resources used during the development of
+            BlackDog:
+          </p>
+          <div>
+            <strong>Environment:</strong>
+            <a
+              href="https://www.fab.com/listings/a3f468c4-6c98-47b1-9da0-277acc235834"
+              target="_blank"
+              >Fab Environment Pack</a
+            >
+          </div>
+          <div>
+            <strong>Ruins:</strong>
+            <a
+              href="https://www.fab.com/listings/838bc247-437d-4429-bfe0-6ff0aa31842c"
+              target="_blank"
+              >Fab Ruins Pack</a
+            >
+          </div>
+          <div>
+            <strong>Shop/Crystal:</strong>
+            <a
+              href="https://www.fab.com/listings/5bd65881-f8b8-4c44-ac8b-3a34228cac0c"
+              target="_blank"
+              >Fab Shop/Crystal</a
+            >
+          </div>
+          <div>
+            <strong>City Gate:</strong>
+            <a
+              href="https://www.fab.com/listings/ced19ea1-31ed-437f-ae64-2b6b1561fede"
+              target="_blank"
+              >Fab City Gate</a
+            >
+          </div>
+          <div>
+            <strong>Weapons:</strong>
+            <em>Infinity Blade: Weapons Pack</em> (No longer available on Fab)
+          </div>
+          <div>
+            <strong>Sound Effects:</strong>
+            <a
+              href="https://pixabay.com/users/23801316/?tab=sound-effects&order=latest&pagi=1"
+              target="_blank"
+              >Pixabay User 23801316</a
+            >
+          </div>
+          <div>
+            <strong>Ambient Sounds:</strong>
+            Free sounds sourced from
+            <a href="https://pixabay.com" target="_blank">Pixabay</a>
+          </div>
+          <div>
+            <strong>Potion Art:</strong>
+            <a
+              href="https://bsky.app/profile/ratspiit.bsky.social"
+              target="_blank"
+              >Ratspiit on BlueSky</a
+            >
+          </div>
+          <div>
+            <strong>1-Hand Attack Animation:</strong>
+            <a
+              href="https://www.fab.com/listings/122fd7bf-6f12-4304-a930-cccbbacdaebc"
+              target="_blank"
+              >Paragon: Greystone</a
+            >
+          </div>
+          <div>
+            <strong>2-Hand Attack Animation:</strong>
+            <a
+              href="https://www.fab.com/listings/f4c67e92-b976-4b5b-ab9f-4c25b010f6f3"
+              target="_blank"
+              >Paragon: Kwang</a
+            >
+          </div>
+          <div>
+            <strong>Weapon Art:</strong> Generated using ChatGPT Image Generator
+          </div>
+          <div>
+            <strong>AI Meshes/Animations:</strong>
+            <a
+              href="https://www.fab.com/listings/039ea035-9360-4e76-ad06-5d3a92da6f65"
+              target="_blank"
+              >Paragon: Minions</a
+            >
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
       <p>&copy; 2024 Killian Hasson</p>
     </footer>
+    <script src="js/main.js"></script>
   </body>
 </html>
